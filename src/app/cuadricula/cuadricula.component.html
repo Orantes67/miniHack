@@ -1,0 +1,12 @@
+<div class="grid">
+    <button 
+      *ngFor="let cell of grid; let i = index" 
+      [ngClass]="{'mine': cell.isMine, 'revealed': cell.isRevealed}"
+      (click)="revealCell(i)">
+      {{ cell.isRevealed ? (cell.isMine ? '💻' : cell.adjacentMines) : '' }}
+    </button>
+  </div>
+  <div *ngIf="gameOver" class="game-over">
+    GAME OVER
+  </div>
+  
